@@ -12,19 +12,17 @@ I really like the bayesian optimization tool Spearmint (https://github.com/HIPS/
 ## Dependencies
 
 * Python 2.7
-* numpy (http://www.numpy.org/)
-* Spearmint (and all of its dependencies) (https://github.com/HIPS/Spearmint)
-* PrettyTable (https://pypi.python.org/pypi/PrettyTable)
+* [numpy](http://www.numpy.org/)
+* [Spearmint](https://github.com/HIPS/Spearmint) (and all of its dependencies)
+* [PrettyTable](https://pypi.python.org/pypi/PrettyTable)
 
 # How to use
 
-1. For your particular experiment, create numbered subdirectories
-(i.e. "0", "1", "2", etc.) of the experiments folder. By default, these should
-contain 6 .npy files (created from `numpy.save()`). They should be called...
-  *`train.npy` (a numExamples by numFeatures matrix of your training data)
-  *`val.npy` (a numExamples by numFeatures matrix of your validation data)
-  *`test.npy` (a numExamples by numFeatures matrix of your testing data)
-  *`trainLabel.npy` (a length numExamples array of training labels)
-  *`valLabel.npy` (a length numExamples array of validation labels)
-  *`testLabel.npy` (a length numExamples array of training labels)
-This is where you 
+1. Get your dataset and determine how many train/val/test splits you want to make
+2. Fill the experiment folder with your data from each of your splits (see readme in the folder for specifics)
+3. Fill in what hyperparameters you want to optimize in `config.json` (see [Spearmint's config json examples](https://github.com/HIPS/Spearmint/tree/master/examples/simple) for help)
+4. Fill in your training/evaluation functions in `experiment.py` (see comments in file for help)
+5. Set the 3 parameters at the top of `setupExperiments.py` appropriately
+6. Run `python setupExperiments.py` and watch the magic of Bayesian Optimization!
+7. Once that is done, run `python viewResults.py` and wait for your results to be tested
+8.  
