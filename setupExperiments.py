@@ -50,6 +50,7 @@ def decompress_array(a):
     return np.fromstring(zlib.decompress(a['value'].decode('base64'))).reshape(a['shape'])
 
 os.system('mongo spearmint --eval "db.dropDatabase()"')
+os.system('rm -rf .tempResults')
 for i in range(numSplits):
     os.system('mkdir .tempResults')
     os.system("cp experiment.py experiments/" + str(i))
@@ -60,13 +61,15 @@ for i in range(numSplits):
     p.kill()
     os.system("mongoexport --db spearmint --collection experiment.jobs --out .tempResults/tmp.jsons")
     runs = []
-    with open('.tmp/tmp.jsons') as f:
+    with open('.tempResults/tmp.jsons') as f:
         for line in f:
             runs.append(json.loads(line))
     
     #the output will be a list of of param settings coupled with their objective values
     output = []
     for r in runs:
+        if r['status'] != 'complete':
+            continue
         cOut = {}
         params = []
         for p,v in r['params'].iteritems():
@@ -74,6 +77,10 @@ for i in range(numSplits):
         cOut['params'] = params
         cOut['objective'] = r['values']['main']
         output.append(cOut)
+    if len(output) == 0:
+        print "No runs were completed! Please allocate more time per split in basicSpearmint.json"
+        quit()
+        
     with open('results/' + str(i) + "_results.p", 'w') as f:
         pickle.dump(output, f)
         
