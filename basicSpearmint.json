@@ -1,0 +1,5 @@
+{
+    "spearmintMain" : "/usr/local/lib/python2.7/dist-packages/spearmint-0.1-py2.7.egg/spearmint/main.py",
+    "numSplits" : 10,
+    "secondsPerSplit" : 30
+}

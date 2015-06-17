@@ -1,0 +1,20 @@
+{
+    "language"        : "PYTHON",
+    "main-file"       : "experiment.py",
+    "experiment-name" : "experiment",
+    "likelihood"      : "NOISELESS",
+    "variables" : {
+        "C" : {
+            "type" : "FLOAT",
+            "size" : 1,
+            "min"  : 10E-4,
+            "max"  : 10E4
+        },
+        "gamma" : {
+            "type" : "FLOAT",
+            "size" : 1,
+            "min"  : 10E-4,
+            "max"  : 10E4
+        }
+    }
+}
