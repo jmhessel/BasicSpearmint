@@ -12,7 +12,6 @@ def test(relativePath, params):
     return -np.sum(np.equal(preds,testLabel))*1./len(testLabel)
 
 def main(job_id, params):
-    print "oh snap"
     cSVM = svm(C = params['C'], gamma = params['gamma'])
     train = np.load("train.npy")
     val = np.load("val.npy")
