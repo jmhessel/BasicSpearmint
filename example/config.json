@@ -7,14 +7,14 @@
         "C" : {
             "type" : "FLOAT",
             "size" : 1,
-            "min"  : 10E-4,
-            "max"  : 10E4
+            "min"  : -4,
+            "max"  : 5
         },
         "gamma" : {
             "type" : "FLOAT",
             "size" : 1,
-            "min"  : 10E-4,
-            "max"  : 10E4
+            "min"  : -4,
+            "max"  : 5
         }
     }
 }
