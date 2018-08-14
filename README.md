@@ -1,3 +1,13 @@
+## Update, Aug 2018:
+
+Thanks for your interest in this library!! I have gotten a few recent e-mails about it, and I have been responding to them with this message:
+
+```
+Thanks for your interest in this library. Since I wrote this wrapper several years ago, the tools that enable bayesian optimization in python have greatly improved. In fact -- they are so good, that I can no longer recommend using my wrapper for experimentation. I would highly recommend checking out fmfn's bayesian optimization code for a more modern/easy-to-use codebase. There are quite a few usage examples in the "examples" directory that illustrate its usage.
+
+https://github.com/fmfn/BayesianOptimization
+```
+
 # Introduction
 I really like the bayesian optimization tool Spearmint (https://github.com/HIPS/Spearmint) but I found that some of its functionality was confusing and overkill if one is trying to run a few tests locally on some data. I have built some tools to streamline the process of small-scale hyperparameter optimization. Hopefully the tool is simple enough to understand -- it's just a few python scripts. I mostly made this repository for myself, but if others find it useful, that's awesome too!
 
